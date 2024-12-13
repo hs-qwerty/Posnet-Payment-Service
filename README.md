@@ -15,44 +15,91 @@ composer require slvler/tmdb
 ## Usage
 - first step is to start client client with required url, version, api key
 ```php
-$option['base_url'] = 'https://api.themoviedb.org/3/'
-$option['api_key'] = 'xxxx'
-$option['version'] = '3'
+use Slvler\Tmdb\Tmdb;
+use Slvler\Tmdb\Factory;
 
-$client = new Client($option);
+$request = Tmdb::factory()
+    ->withBaseUrl('https://api.themoviedb.org/3')
+    ->withHttpHeader('Authorization', 'Bearer xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+    ->withPath('movie/11')
+    ->make();
 ```
-- You need to make a request to the tmdb service with the service point we created.
-```php
-$tmdb = new Tmdb($client);
+- response
+```json
+{
+  "adult": false,
+  "backdrop_path": "/zqkmTXzjkAgXmEWLRsY4UpTWCeo.jpg",
+  "belongs_to_collection": {
+    "id": 10,
+    "name": "Star Wars Collection",
+    "poster_path": "/r8Ph5MYXL04Qzu4QBbq2KjqwtkQ.jpg",
+    "backdrop_path": "/zZDkgOmFMVYpGAkR9Tkxw0CRnxX.jpg"
+  },
+  "budget": 11000000,
+  "genres": [
+    {
+      "id": 12,
+      "name": "Adventure"
+    },
+    {
+      "id": 28,
+      "name": "Action"
+    },
+    {
+      "id": 878,
+      "name": "Science Fiction"
+    }
+  ],
+  "homepage": "http://www.starwars.com/films/star-wars-episode-iv-a-new-hope",
+  "id": 11,
+  "imdb_id": "tt0076759",
+  "origin_country": [
+    "US"
+  ],
+  "original_language": "en",
+  "original_title": "Star Wars",
+  "overview": "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.",
+  "popularity": 91.205,
+  "poster_path": "/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg",
+  "production_companies": [
+    {
+      "id": 1,
+      "logo_path": "/tlVSws0RvvtPBwViUyOFAO0vcQS.png",
+      "name": "Lucasfilm Ltd.",
+      "origin_country": "US"
+    },
+    {
+      "id": 25,
+      "logo_path": "/qZCc1lty5FzX30aOCVRBLzaVmcp.png",
+      "name": "20th Century Fox",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "release_date": "1977-05-25",
+  "revenue": 775398007,
+  "runtime": 121,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "A long time ago in a galaxy far, far away...",
+  "title": "Star Wars",
+  "video": false,
+  "vote_average": 8.2,
+  "vote_count": 20635
+}
 ```
-- Then you can send a request like this to bring the information of the movie we want.
-```php
-$tmdb->movie("550");
-```
-- You can it to fetch player information.
-```php
-$tmdb->people("13");
-```
-- to search on the specified keyword
-```php
-$tmdb->keyword("550");
-```
-- to search in the specified condition
-```php
-$tmdb->network("550");
-```
-- You can it to search in specified situations.
-```php
-$tmdb->review("58aa82f09251416f92006a3a");
-```
-- You want this service when you want a TV program.
-```php
-$tmdb->tv("111");
-```
--  movies with collection
-```php
-$tmdb->collection("10");
-```
+
 ### Testing
 ```bash
 vendor\bin\phpunit
