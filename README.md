@@ -1,8 +1,7 @@
 # TMDB service
 
 [![tests](https://github.com/slvler/tmdb/actions/workflows/tests.yml/badge.svg)](https://github.com/slvler/tmdb/actions/workflows/tests.yml)
-[![Latest Stable Version](https://poser.pugx.org/slvler/tmdb/v)](https://packagist.org/packages/slvler/tmdb)
-[![Latest Unstable Version](https://poser.pugx.org/slvler/tmdb/v/unstable)](https://packagist.org/packages/slvler/tmdb)
+[![Latest Stable Version](https://img.shields.io/packagist/v/slvler/tmdb.svg)](https://packagist.org/packages/slvler/tmdb)
 [![License](https://poser.pugx.org/slvler/tmdb/license)](https://packagist.org/packages/slvler/tmdb)
 [![Total Downloads](https://poser.pugx.org/slvler/tmdb/downloads)](https://packagist.org/packages/slvler/tmdb)
 
